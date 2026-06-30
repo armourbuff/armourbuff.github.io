@@ -139,7 +139,10 @@
   .fact .k{color:var(--muted)}.fact .v{color:var(--text);font-weight:600;text-align:right}
 
   /* CERTS */
-  .cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:18px}
+  .cert{text-decoration:none;display:block}
+  a.verify{cursor:pointer}
+  a.verify:hover{text-decoration:underline}
   .cert{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;transition:.3s;position:relative;overflow:hidden}
   .cert::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
   .cert:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 20px 50px rgba(0,0,0,.4)}
@@ -344,12 +347,12 @@
     <h2 class="title reveal">Certifications</h2>
     <p class="lead reveal" style="margin-bottom:36px">Industry-recognised offensive-security credentials, hands-on and exam-proctored.</p>
     <div class="cert-grid">
-      <div class="cert reveal"><div class="badge">OSCP+</div><div class="name">Offensive Security Certified Professional+</div><div class="issuer">OffSec</div><span class="verify">🔗 Verify on Credly</span></div>
-      <div class="cert reveal"><div class="badge">CRTA</div><div class="name">Certified Red Team Analyst</div><div class="issuer">CyberWarFare Labs</div><span class="verify">🔗 Verify on Credly</span></div>
-      <div class="cert reveal"><div class="badge">CNSP</div><div class="name">Certified Network Security Practitioner</div><div class="issuer">The SecOps Group</div><span class="verify">🔗 Verify on Credly</span></div>
-      <div class="cert reveal"><div class="badge">CAP</div><div class="name">Certified AppSec Practitioner</div><div class="issuer">The SecOps Group</div><span class="verify">🔗 Verify on Credly</span></div>
+      <div class="cert reveal"><div class="badge">OSCP+</div><div class="name">Offensive Security Certified Professional+</div><div class="issuer">OffSec</div><a class="verify" href="https://credentials.offsec.com/a200c387-ee76-4b76-b7cd-48126a50fdee" target="_blank" rel="noopener">🔗 Verify credential ↗</a></div>
+      <div class="cert reveal"><div class="badge">CRTA</div><div class="name">Certified Red Team Analyst</div><div class="issuer">CyberWarFare Labs</div><a class="verify" href="https://labs.cyberwarfare.live/credential/achievement/6975827746d815f910580b73" target="_blank" rel="noopener">🔗 Verify credential ↗</a></div>
+      <div class="cert reveal"><div class="badge">CNSP</div><div class="name">Certified Network Security Practitioner</div><div class="issuer">The SecOps Group</div><a class="verify" href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXf6aiJmCL5IgGEzMLZ1iQlb+pGq8xoMqqATvjvo+09n/St2NcbjHhls3KS8qVmFTy0akh0MBvt/t1UZ6pUiTtiI=" target="_blank" rel="noopener">🔗 Verify credential ↗</a></div>
+      <div class="cert reveal"><div class="badge">CAP</div><div class="name">Certified AppSec Practitioner</div><div class="issuer">The SecOps Group</div><a class="verify" href="https://candidate.speedexam.net/certificate.aspx?SSTATE=am4131EniU8ntjp4bO5mXdVmSCi5q4qz0kFG383vloImWCBu5HZ0mTxGObJppzxLyAUJobIwtvA8nq/5q81OMpJ2OLjJoRb9CjJcHgt8uqM=" target="_blank" rel="noopener">🔗 Verify credential ↗</a></div>
+      <div class="cert reveal"><div class="badge">EH</div><div class="name">Ethical Hacking From Scratch</div><div class="issuer">zSecurity · Udemy</div><a class="verify" href="https://www.udemy.com/certificate/UC-e18097a0-0bf8-479e-a164-32590198bdd0/" target="_blank" rel="noopener">🔗 Verify credential ↗</a></div>
     </div>
-    <p class="reveal" style="text-align:center;margin-top:24px;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:13.5px">+ <span style="color:var(--accent)">Ethical Hacking From Scratch</span> — zSecurity</p>
   </div>
 </section>
 
@@ -510,26 +513,6 @@
       <p id="cvUpdated" style="font-size:13px;margin-top:18px;opacity:.7;position:relative"></p>
     </div>
 
-    <!-- how to update -->
-    <details class="cv-update reveal">
-      <summary>🔧 How to update my résumé</summary>
-      <div class="cv-update-body">
-        <p>Pick whichever is easier — you never have to touch the code in either case:</p>
-        <div class="upd-grid">
-          <div class="upd">
-            <span class="num">A</span>
-            <h4>Replace the file (simplest)</h4>
-            <p>Keep your PDF named exactly <code>Amit_Kumar_Gupta_CV.pdf</code> and place it next to <code>index.html</code>. To update later, overwrite it with a new PDF of the same name. On GitHub: <em>Add file → Upload files → commit</em>.</p>
-          </div>
-          <div class="upd">
-            <span class="num">B</span>
-            <h4>Use a Drive/Dropbox link (zero file management)</h4>
-            <p>Host the PDF on Google Drive or Dropbox once, then paste its share link into the <code>RESUME.url</code> line near the top of the page's script. After that, updating your résumé = replacing the file in Drive. The site link never changes.</p>
-          </div>
-        </div>
-        <p class="upd-tip">💡 Also update <code>RESUME.updated</code> in the same spot to refresh the "Last updated" date shown above. After any change, hard-refresh (Ctrl/Cmd+Shift+R) to clear the cached PDF.</p>
-      </div>
-    </details>
   </div>
 </section>
 
@@ -578,7 +561,6 @@ const CV_B64 = "JVBERi0xLjQKJdPr6eEKMSAwIG9iago8PC9UaXRsZSAoQW1pdCBLdW1hciBHdXB0
       dl.href=url; dl.download=RESUME.file; vw.href=url; vw.target='_blank';
     }catch(e){}
   }
-  /* prefer a real PDF file in the repo (for easy future updates); else use the embedded copy */
   fetch(RESUME.file,{method:'HEAD'}).then(r=>{
     if(r.ok){ dl.href=RESUME.file; dl.download=RESUME.file; vw.href=RESUME.file; vw.target='_blank'; }
     else useEmbedded();
